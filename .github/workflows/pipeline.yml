@@ -1,0 +1,35 @@
+name: Pipeline
+on: [push, pull_request]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Copiar arquivos do repositório
+        uses: actions/checkout@v4
+      
+      - name: Instalar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12.1'
+
+      - name: Instalar e configurar Poetry
+        uses: snok/install-poetry@v1
+        with:
+          virtualenvs-create: true
+          virtualenvs-in-project: true
+
+      - name: Carregar ambiente virtual em cache
+        id: cached-poetry-dependencies
+        uses: actions/cache@v4
+        with:
+          path: .venv
+          key: venv-${{ hashFiles('**/poetry.lock') }}
+
+      - name: Instalar dependendências do projeto
+        if: steps.cached-poetry-dependencies.outputs.cache-hit != 'true'
+        run: poetry install --without doc
+      
+      - name: Executar testes
+        run: poetry run task test

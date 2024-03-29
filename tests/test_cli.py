@@ -33,3 +33,13 @@ def test_acorde_cli_deve_conter_notas_na_resposta_padrao(nota):
 @pytest.mark.parametrize('grau', ['I', 'III', 'V'])
 def test_acorde_cli_deve_conter_todos_os_graus(grau):
     assert grau in runner.invoke(app, ['acorde']).stdout
+
+
+@pytest.mark.parametrize('cifra', ['C', 'Dm', 'Em', 'F', 'G', 'Am', 'Bo'])
+def test_campo_harmonico_cli_deve_conter_notas_na_resposta_padrao(cifra):
+    assert cifra in runner.invoke(app, ['campo-harmonico']).stdout
+
+
+@pytest.mark.parametrize('grau', ['I', 'ii', 'iii', 'IV', 'V', 'vi', 'vii°'])
+def test_campo_harmonico_cli_deve_conter_todos_os_graus(grau):
+    assert grau in runner.invoke(app, ['campo-harmonico', 'C']).stdout

@@ -1,3 +1,48 @@
+"""Módulo das escalas musicais.
+
+Attributes:
+    ESCALAS: Escalas implementadas usando a notação de inteiros.
+    NOTAS: Notas musicais.
+
+# Escalas
+
+As escalas são implementadas em uma constante chamada `ESCALAS`.
+Trata-se de um dicionário onde as chaves são as escalas. Se quiser ver todas
+as escalas implementadas, você pode usar:
+
+```py title="No seu shell interativo"
+>>> from notas_musicais.escalas import ESCALAS
+>>> ESCALAS
+{'maior': (0, 2, 4, 5, 7, 9, 11), 'menor': (0, 2, 3, 5, 7, 8, 10)...}
+
+```
+
+A notação inteira foi retirada da página
+[List of musical scales and modes](https://en.wikipedia.org/wiki/List_of_musical_scales_and_modes)
+na Wikipedia.
+
+tip: Dica!
+    Você pode contribuir com novas escalas usando a notação inteira:
+    [Wikipedia](https://en.wikipedia.org/wiki/List_of_musical_scales_and_modes).
+
+    Todos os Pull Requests serão bem-vindos! :heart:
+
+# Notas
+
+As notas estão sendo definidas em uma constante `NOTAS`. Optou-se por manter
+somente as notas no formato **natural** e **sustenido** (#) para simplificar o
+fluxo de trabalho, embora não esteja totalmente correto.
+
+Para ver as 12 notas, você pode:
+
+```py title="No seu shell interativo"
+>>> from notas_musicais.escalas import NOTAS
+>>> NOTAS
+['C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B']
+
+```
+"""
+
 NOTAS = ['C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B']
 ESCALAS = {'maior': (0, 2, 4, 5, 7, 9, 11), 'menor': (0, 2, 3, 5, 7, 8, 10)}
 

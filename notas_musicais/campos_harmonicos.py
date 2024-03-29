@@ -1,3 +1,5 @@
+"""Módulo responsável pela criação de campos harmônicos."""
+
 from itertools import starmap
 
 from notas_musicais.acordes import triade

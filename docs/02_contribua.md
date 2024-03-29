@@ -1,6 +1,6 @@
 # Como Contribuir
 
-Obrigado por se interessar por contribuir no projeto `notas-musicais` ❤️.
+Obrigado por se interessar por contribuir no projeto `notas-musicais` :heart:.
 Nesse documento estão listadas as operações mais comuns e que você pode precisar para contribuir.
 
 ## Como o Projeto Funciona?

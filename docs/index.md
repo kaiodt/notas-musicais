@@ -4,11 +4,15 @@
 
 **Notas Musicais** é um CLI para ajudar na formação de escalas, acordes e campos harmônicos.
 
-A aplicação é baseada em um comando chamado `notas-musicais`, que tem um subcomando relacionado a cada ação que a aplicação pode realizar, sendo:
+A aplicação é baseada em um comando chamado `{{ commands.run }}`, que tem um subcomando relacionado a cada ação que a aplicação pode realizar, sendo:
 
 - `escala`
 - `acorde`
 - `campo-harmonico`
+
+{% include "templates/cards.html" %}
+
+{% include "templates/instalacao.md" %}
 
 
 ## Como Usar
@@ -20,7 +24,7 @@ Você pode executar a funcionalidade de **escalas** via linha de comando.
 Por exemplo, o comando:
 
 ```bash
-notas-musicais escala
+{{ commands.run }} escala
 ```
 
 Retorna os graus e as notas correspondentes da escala de **Dó** (**C**) **maior**:
@@ -40,7 +44,7 @@ O primeiro parâmetro do CLI é a tônica da escala que você deseja exibir. Com
 Por exemplo, o comando:
 
 ```bash
-notas-musicais escala F#
+{{ commands.run }} escala F#
 ```
 
 Retorna os graus e as notas correspondentes da escala de **Fá sustenido** (**F#**) **maior**:
@@ -60,7 +64,7 @@ Também é possível alterar a tonalidade da escala que você deseja exibir. Par
 Por exemplo, o comando:
 
 ```bash
-notas-musicais escala D# menor
+{{ commands.run }} escala D# menor
 ```
 
 Retorna os graus e as notas correspondentes da escala de **Ré sustenido** (**D#**) **menor**:
@@ -80,7 +84,7 @@ Você pode executar a funcionalidade de **acordes** via linha de comando.
 Por exemplo, o comando:
 
 ```bash
-notas-musicais acorde
+{{ commands.run }} acorde
 ```
 
 Retorna os graus e as notas correspondentes ao acorde de **Dó** (**C**) **maior**:
@@ -100,7 +104,7 @@ Também é possível passar como argumento para o comando a cifra do acorde dese
 Por exemplo, o comando:
 
 ```bash
-notas-musicais acorde C+
+{{ commands.run }} acorde C+
 ```
 
 Retorna os graus e as notas correspondentes ao **acorde aumentado** de **Dó** (**C+**):
@@ -128,7 +132,7 @@ Você pode executar a funcionalidade de **campos harmônicos** via linha de coma
 Por exemplo, o comando:
 
 ```bash
-notas-musicais campo-harmonico
+{{ commands.run }} campo-harmonico
 ```
 
 Retorna as cifras e os graus correspondentes do campo harmônico de **Dó** (**C**) **maior**:
@@ -148,7 +152,7 @@ Também é possível alterar a tônica do campo harmônico usando o primeiro par
 Por exemplo, o comando:
 
 ```bash
-notas-musicais campo-harmonico E
+{{ commands.run }} campo-harmonico E
 ```
 
 Retorna as cifras e os graus correspondentes do campo harmônico de **Mi** (**E**) **maior**:
@@ -168,7 +172,7 @@ Também é possível alterar a tonalidade do campo harmônico usando o segundo p
 Por exemplo, o comando:
 
 ```bash
-notas-musicais campo-harmonico E menor
+{{ commands.run }} campo-harmonico E menor
 ```
 
 Retorna os graus e as notas correspondentes da escala de **Mi** (**E**) **menor**:
@@ -187,11 +191,11 @@ Retorna os graus e as notas correspondentes da escala de **Mi** (**E**) **menor*
 Para exibir as possíveis opções do CLI, use a flag `--help`.
 
 ```bash
-notas-musicais --help
+{{ commands.run }} --help
 ```
 
 ```bash
- Usage: notas-musicais [OPTIONS] COMMAND [ARGS]...
+ Usage: {{ commands.run }} [OPTIONS] COMMAND [ARGS]...
 
 ╭─ Options ──────────────────────────────────────────────────────────────╮
 │ --install-completion        [bash|zsh|fish|power  Install completion   │
@@ -221,11 +225,11 @@ As informaçães sobre cada subcomando podem ser acessadas usando a flag `--flag
 Por exemplo:
 
 ```bash
-notas-musicais campo-harmonico --help
+{{ commands.run }} campo-harmonico --help
 ```
 
 ```bash
- Usage: notas-musicais campo-harmonico [OPTIONS] [TONICA] [TONALIDADE]
+ Usage: {{ commands.run }} campo-harmonico [OPTIONS] [TONICA] [TONALIDADE]
 
 ╭─ Arguments ────────────────────────────────────────────────────────────╮
 │   tonica          [TONICA]      Tônica do campo harmônico [default: C] │

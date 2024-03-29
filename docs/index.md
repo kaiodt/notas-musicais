@@ -2,9 +2,14 @@
 
 # Notas Musicais
 
-**Notas Musicais** é um CLI para ajudar na formação de escalas e acordes.
+**Notas Musicais** é um CLI para ajudar na formação de escalas, acordes e campos harmônicos.
 
-Existem dois comandos disponíveis: `escala` e `acorde`.
+A aplicação é baseada em um comando chamado `notas-musicais`, que tem um subcomando relacionado a cada ação que a aplicação pode realizar, sendo:
+
+- `escala`
+- `acorde`
+- `campo-harmonico`
+
 
 ## Como Usar
 
@@ -107,12 +112,74 @@ Retorna os graus e as notas correspondentes ao **acorde aumentado** de **Dó** (
 │ C │ E   │ G# │
 └───┴─────┴────┘
 ```
+
 Até o momento, estão disponíveis:
-    - Acordes maiores
-    - Acordes menores
-    - Acordes diminutos
-    - Acordes aumentados
-    - Acorder menores aumentados
+
+- Acordes maiores
+- Acordes menores
+- Acordes diminutos
+- Acordes aumentados
+- Acorder menores aumentados
+
+### Campos Harmônicos
+
+Você pode executar a funcionalidade de **campos harmônicos** via linha de comando.
+
+Por exemplo, o comando:
+
+```bash
+notas-musicais campo-harmonico
+```
+
+Retorna as cifras e os graus correspondentes do campo harmônico de **Dó** (**C**) **maior**:
+
+```bash
+┏━━━┳━━━━┳━━━━━┳━━━━┳━━━┳━━━━┳━━━━━━┓
+┃ I ┃ ii ┃ iii ┃ IV ┃ V ┃ vi ┃ vii° ┃
+┡━━━╇━━━━╇━━━━━╇━━━━╇━━━╇━━━━╇━━━━━━┩
+│ C │ Dm │ Em  │ F  │ G │ Am │ Bo   │
+└───┴────┴─────┴────┴───┴────┴──────┘
+```
+
+#### Escolhendo a Tônica do Campo Harmônico
+
+Também é possível alterar a tônica do campo harmônico usando o primeiro parâmetro do subcomando.
+
+Por exemplo, o comando:
+
+```bash
+notas-musicais campo-harmonico E
+```
+
+Retorna as cifras e os graus correspondentes do campo harmônico de **Mi** (**E**) **maior**:
+
+```bash
+┏━━━┳━━━━━┳━━━━━┳━━━━┳━━━┳━━━━━┳━━━━━━┓
+┃ I ┃ ii  ┃ iii ┃ IV ┃ V ┃ vi  ┃ vii° ┃
+┡━━━╇━━━━━╇━━━━━╇━━━━╇━━━╇━━━━━╇━━━━━━┩
+│ E │ F#m │ G#m │ A  │ B │ C#m │ D#o  │
+└───┴─────┴─────┴────┴───┴─────┴──────┘
+```
+
+#### Escolhendo a Tonalidade da Escala
+
+Também é possível alterar a tonalidade do campo harmônico usando o segundo parâmetro do subcomando.
+
+Por exemplo, o comando:
+
+```bash
+notas-musicais campo-harmonico E menor
+```
+
+Retorna os graus e as notas correspondentes da escala de **Mi** (**E**) **menor**:
+
+```bash
+┏━━━━┳━━━━━┳━━━━━┳━━━━┳━━━━┳━━━━┳━━━━━┓
+┃ i  ┃ ii° ┃ III ┃ iv ┃ v  ┃ VI ┃ VII ┃
+┡━━━━╇━━━━━╇━━━━━╇━━━━╇━━━━╇━━━━╇━━━━━┩
+│ Em │ F#o │ G   │ Am │ Bm │ C  │ D   │
+└────┴─────┴─────┴────┴────┴────┴─────┘
+```
 
 
 ## Ajuda do CLI
@@ -126,22 +193,46 @@ notas-musicais --help
 ```bash
  Usage: notas-musicais [OPTIONS] COMMAND [ARGS]...
 
-╭─ Options ────────────────────────────────────────────────────────────╮
-│ --install-completion        [bash|zsh|fish|powe  Install completion  │
-│                             rshell|pwsh]         for the specified   │
-│                                                  shell.              │
-│                                                  [default: None]     │
-│ --show-completion           [bash|zsh|fish|powe  Show completion for │
-│                             rshell|pwsh]         the specified       │
-│                                                  shell, to copy it   │
-│                                                  or customize the    │
-│                                                  installation.       │
-│                                                  [default: None]     │
-│ --help                                           Show this message   │
-│                                                  and exit.           │
-╰──────────────────────────────────────────────────────────────────────╯
-╭─ Commands ───────────────────────────────────────────────────────────╮
-│ acorde                                                               │
-│ escala                                                               │
-╰──────────────────────────────────────────────────────────────────────╯
+╭─ Options ──────────────────────────────────────────────────────────────╮
+│ --install-completion        [bash|zsh|fish|power  Install completion   │
+│                             shell|pwsh]           for the specified    │
+│                                                   shell.               │
+│                                                   [default: None]      │
+│ --show-completion           [bash|zsh|fish|power  Show completion for  │
+│                             shell|pwsh]           the specified shell, │
+│                                                   to copy it or        │
+│                                                   customize the        │
+│                                                   installation.        │
+│                                                   [default: None]      │
+│ --help                                            Show this message    │
+│                                                   and exit.            │ 
+╰────────────────────────────────────────────────────────────────────────╯
+╭─ Commands ─────────────────────────────────────────────────────────────╮
+│ acorde                                                                 │
+│ campo-harmonico                                                        │
+│ escala                                                                 │
+╰────────────────────────────────────────────────────────────────────────╯
+```
+
+### Informações Sobre os Subcomandos
+
+As informaçães sobre cada subcomando podem ser acessadas usando a flag `--flag` após o nome do subcomando.
+
+Por exemplo:
+
+```bash
+notas-musicais campo-harmonico --help
+```
+
+```bash
+ Usage: notas-musicais campo-harmonico [OPTIONS] [TONICA] [TONALIDADE]
+
+╭─ Arguments ────────────────────────────────────────────────────────────╮
+│   tonica          [TONICA]      Tônica do campo harmônico [default: C] │
+│   tonalidade      [TONALIDADE]  Tonalidade do campo harmônico          │
+│                                 [default: maior]                       │
+╰────────────────────────────────────────────────────────────────────────╯
+╭─ Options ──────────────────────────────────────────────────────────────╮
+│ --help          Show this message and exit.                            │
+╰────────────────────────────────────────────────────────────────────────╯
 ```

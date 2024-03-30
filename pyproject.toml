@@ -3,7 +3,20 @@ name = "notas-musicais"
 version = "0.1.0"
 description = ""
 authors = ["Kaio Rocha <kaiodtr@gmail.com>"]
+license = "Beerware"
 readme = "README.md"
+classifiers = [
+    "Topic :: Education",
+    "Environment :: Console",
+    "Natural Language :: Portuguese (Brazilian)",
+    "Development Status :: 5 - Production/Stable",
+    "Programming Language :: Python :: 3.12"
+]
+
+[tool.poetry.urls]
+"Documentação" = "https://notas-musicais-kaiodtr.readthedocs.io/pt-br/latest/"
+"Código" = "https://github.com/kaiodt/notas-musicais"
+"Bug Tracker" = "https://github.com/kaiodt/notas-musicais/issues"
 
 [tool.poetry.scripts]
 notas-musicais = "notas_musicais.cli:app"
